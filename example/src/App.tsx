@@ -7,7 +7,7 @@ export default function App() {
   const [result, setResult] = React.useState<number | undefined>();
 
   React.useEffect(() => {
-    MyLibrary.multiply(3, 7).then(setResult);
+    MyLibrary.multiply(5, 7).then(setResult);
   }, []);
 
   return (
