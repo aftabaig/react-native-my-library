@@ -1,21 +1,23 @@
 import * as React from 'react';
-
-import { StyleSheet, View, Text,NativeModules, NativeEventEmitter } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  NativeModules,
+  NativeEventEmitter,
+} from 'react-native';
 import MyLibraryEvent from './MyLibraryEvent';
 
-
 const locationEmitter = new NativeEventEmitter(NativeModules.MyLibrary);
-
 const lib = new MyLibraryEvent();
 
 export default function App() {
   const [latitude, setLatitude] = React.useState<number | undefined>();
   const [longitude, setLongitude] = React.useState<number | undefined>();
 
-
   React.useEffect(() => {
     locationEmitter.addListener('onLocationChange', (result) => {
-      const res = result[1]
+      const res = result[1];
       const data = res.split(',');
       const lat = data[0];
       const lon = data[1];
