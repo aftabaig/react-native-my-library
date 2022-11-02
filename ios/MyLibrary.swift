@@ -71,13 +71,12 @@ open class MyLibrary: RCTEventEmitter , CLLocationManagerDelegate {
    open override func constantsToExport() -> [AnyHashable : Any]! {
         return [:]
     }
-    
-    @objc(multiply:withB:withResolver:withRejecter:)
-    func multiply(a: Float, b: Float, resolve:RCTPromiseResolveBlock,reject:RCTPromiseRejectBlock) -> Void {
-        //         tracker = TrackerMate()
-        resolve(a*b)
-    }
-    
+//    
+//    @objc(multiply:withB:withResolver:withRejecter:)
+//    func multiply(a: Float, b: Float, resolve:RCTPromiseResolveBlock,reject:RCTPromiseRejectBlock) -> Void {
+//        resolve(a*b)
+//    }
+//    
     @objc
     static func requireMainQueueSetup() -> Bool {
         return true
@@ -87,14 +86,7 @@ open class MyLibrary: RCTEventEmitter , CLLocationManagerDelegate {
     func division(a: Float, b: Float, resolve:RCTPromiseResolveBlock,reject:RCTPromiseRejectBlock) -> Void {
         resolve(a/b)
     }
-    
-    @objc(printHello:withRejecter:)
-    func printHello(resolve:RCTPromiseResolveBlock,reject:RCTPromiseRejectBlock) -> Void {
-        let b = "Else block"
-        //  reject(b)
-        resolve(b)
-    }
-    
+
     @objc
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Latitude "  , locations.first?.coordinate.latitude ?? 0.0)
